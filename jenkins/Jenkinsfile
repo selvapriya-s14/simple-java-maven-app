@@ -7,13 +7,6 @@ pipeline {
        
 
     }
-    
-    stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/selvapriya-s14/simple-java-maven-app.git'
-            }
-        }
         
         stage('Build') {
             steps {
