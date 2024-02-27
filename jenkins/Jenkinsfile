@@ -4,8 +4,7 @@ pipeline {
     environment {
         // Specify the Maven installation name configured in Jenkins
         MAVEN_HOME = tool 'maven 3.9.6'
-        DOCKER_IMAGE_NAME = 'my-java-app'
-        DOCKER_IMAGE_TAG = '1.0'
+       
 
     }
     
@@ -24,6 +23,7 @@ pipeline {
                     docker.withRegistry('https://hub.docker.com/', 'Docker') {
                 def dockerImage = docker.build("your-docker-image-name:${env.BUILD_ID}")
                 dockerImage.push()
+
             }
                 }
             }
