@@ -31,7 +31,7 @@ pipeline {
                 {
                     writeFile file: 'Dockerfile', text: '''
                 FROM openjdk:11-jre-slim
-                WORKDIR /docker.io/selvapriya14/docker_image
+                WORKDIR /app
                 COPY target/*.jar app.jar
                 EXPOSE 9999
                 CMD ["java", "-jar", "app.jar"]
