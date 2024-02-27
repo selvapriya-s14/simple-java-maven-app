@@ -1,15 +1,33 @@
 pipeline {
     agent any
-    tools {
-        maven 'maven 3.9.6' 
+    
+    environment {
+       
+        MAVEN_HOME = tool 'Maven3.6.3'
     }
+    
     stages {
+        stage('Checkout') {
+            steps {
+               
+                git 'https://github.com/selvapriya-s14/simple-java-maven-app.git'
+            }
+        }
+        
         stage('Build') {
             steps {
-                sh 'mvn --version'
+
+                sh "${env.MAVEN_HOME}/bin/mvn clean package"
+            }
+        }
+        
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
             }
         }
     }
 }
+
 
 
