@@ -1,18 +1,24 @@
 pipeline {
     agent any
     
+    environment {
+        // Specify the Maven installation name configured in Jenkins
+        MAVEN_HOME = tool 'maven 3.9.6'
+    }
+    
     stages {
         stage('Checkout') {
             steps {
-               
                 git 'https://github.com/selvapriya-s14/simple-java-maven-app.git'
             }
         }
         
         stage('Build') {
             steps {
-
-                sh "${env.MAVEN_HOME}/bin/mvn clean package"
+                script {
+                    // Use 'sh' step with the full path to Maven executable
+                    sh "${env.MAVEN_HOME}/bin/mvn clean package"
+                }
             }
         }
         
@@ -23,6 +29,7 @@ pipeline {
         }
     }
 }
+
 
 
 
