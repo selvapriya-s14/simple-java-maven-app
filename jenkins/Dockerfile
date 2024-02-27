@@ -13,6 +13,6 @@ ENV JAVA_OPTS=""
  
 # Expose the port your application runs on
 EXPOSE 8181
- ENTRYPOINT ["tail", "-f", "/dev/null"]
+
 # Run your application when the container starts
-CMD ["java","sleep", "1d","-jar", "my-app-1.0-SNAPSHOT.jar"]
+CMD ["java"-jar", "my-app-1.0-SNAPSHOT.jar"]
