@@ -15,4 +15,4 @@ ENV JAVA_OPTS=""
 EXPOSE 8181
 
 # Run your application when the container starts
-CMD ["java"-jar", "my-app-1.0-SNAPSHOT.jar"]
+CMD ["java","-jar","my-app-1.0-SNAPSHOT.jar"]
