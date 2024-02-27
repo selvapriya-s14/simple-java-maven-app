@@ -12,7 +12,7 @@ COPY target/my-app-1.0-SNAPSHOT.jar /app
 ENV JAVA_OPTS=""
  
 # Expose the port your application runs on
-EXPOSE 9999
+EXPOSE 8181
  
 # Run your application when the container starts
 CMD ["java", "-jar", "my-app-1.0-SNAPSHOT.jar"]
