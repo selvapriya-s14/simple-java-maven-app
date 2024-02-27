@@ -20,11 +20,19 @@ pipeline {
                 script {
                     // Use 'sh' step with the full path to Maven executable
                     sh "${env.MAVEN_HOME}/bin/mvn clean package"
-                    docker.withRegistry('https://hub.docker.com/', 'Docker') {
-                def dockerImage = docker.build("your-docker-image-name:${env.BUILD_ID}")
-                dockerImage.push()
-
             }
+                }
+            }
+        stage('Build docker Image')
+        {
+            steps
+            {
+                script
+                {
+                  docker.withRegistry('https:https://index.docker.io/v1/', 'Docker') {
+                def dockerImage = docker.build("docker_image:${env.BUILD_ID}")
+                dockerImage.push()
+                  }
                 }
             }
         }
