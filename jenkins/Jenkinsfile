@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Specify the Maven installation name configured in Jenkins
         MAVEN_HOME = tool 'maven 3.9.6'
-       
+        BUILD_ID = "/"
 
     }
     stages {    
@@ -23,7 +23,7 @@ pipeline {
                 script
                 {   
                   docker.withRegistry('https://index.docker.io/v1/', 'Docker') {
-                def dockerImage = docker.build("selvapriya14/java_app:${env.BUILD_ID}")
+                def dockerImage = docker.build("selvapriya14/java_app:${env.BUILD_ID}", "-f var/lib/jenkins/workspace/New Java Project/jenkins/Dockerfile .")
                 dockerImage.push()
                   }
                 }
