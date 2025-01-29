@@ -4,7 +4,6 @@ pipeline {
     environment {
         // Specify the Maven installation name configured in Jenkins
         MAVEN_HOME = tool 'maven 3.9.6'
-        BUILD_ID = "/"
 
     }
     stages {    
