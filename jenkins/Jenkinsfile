@@ -34,7 +34,7 @@ pipeline {
             docker.image("selvapriya14/java_app:${env.BUILD_ID}").pull()
             // def BUILD_ID = env.BUILD_ID
             // echo "${BUILD_ID}"
-            sh 'docker run -p 8181:8181 selvapriya14/java_app:$BUILD_ID'
+            sh 'docker run -p -d 8181:8181 selvapriya14/java_app:$BUILD_ID'
           //def dockerContainer = docker.image("selvapriya14/java_app:${env.BUILD_ID}").run('-p 8181:8181')
  
            
